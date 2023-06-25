@@ -1,0 +1,36 @@
+#include <iostream>
+
+using namespace std;
+
+void insert(int arr[], int& size, int index, const int elements[], int numEl) {
+    for (int i = size - 1; i >= index; i--) {
+        arr[i + numEl] = arr[i];
+    }
+
+    for (int i = 0; i < numEl; i++) {
+        arr[index + i] = elements[i];
+    }
+
+    size += numEl;
+}
+int main() {
+    const int maxSize = 100;
+    int array[maxSize] = {1, 2, 3, 4, 5};
+    int size = 5;
+    const int index = 2;
+    const int numEl = 3;
+    int newEl[numEl] = {6, 7, 8};
+
+    cout << "Original array: ";
+    for (int i = 0; i < size; i++) {
+        cout << array[i] << " ";
+    }
+    cout << endl;
+    insert(array, size, index, newEl, numEl);
+    cout << "Inserting new elements: ";
+    for (int i = 0; i < size; i++) {
+        cout << array[i] << " ";
+    }
+    cout << endl;
+    return 0;
+}
