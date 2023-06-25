@@ -1,0 +1,32 @@
+#include <iostream>
+
+using namespace std;
+
+void addEl(int arr[], int size, const int elements[], int numEl) {
+    for (int i = 0; i < numEl; i++) {
+        arr[size + i] = elements[i];
+    }
+}
+
+int main() {
+    const int maxSize = 100;
+    int array[maxSize] = {1, 2, 3};
+    const int numEl = 3;
+    int newEl[numEl] = {4, 5, 6};
+
+    cout << "Original array: ";
+    for (int i = 0; i < numEl; i++) {
+        cout << array[i] << " ";
+    }
+    cout << endl;
+
+    addEl(array, numEl, newEl, numEl);
+
+    cout << "Array after adding new elements: ";
+    for (int i = 0; i < numEl + numEl; i++) {
+        cout << array[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
